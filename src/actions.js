@@ -1,11 +1,11 @@
 import {C} from './constants';
 import m from 'moment';
-export const websocket = new WebSocket(
-    document.location.hostname === 'localhost' ?
-    'ws:localhost:3000' :
-    'ws:188.166.107.162:3000');
 
-// 188.166.107.162
+// External server, Comment this out if you are messing with the server code.
+export const websocket = new WebSocket('ws:188.166.107.162:3000');
+
+// Localhost server, uncomment this if you're messing about with the server code.
+// export const websocket = new WebSocket('ws:localhost:3000');
 
 export default {
     updateData() {
