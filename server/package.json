@@ -1,0 +1,26 @@
+{
+  "name": "assignment1",
+  "version": "0.0.1",
+  "description": "Assignment 3, 1DV449",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js --ignore /client/* --ignore /cache.json --verbose"
+  },
+  "author": "mw222rs",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "request": "^2.67.0",
+    "ws": "^0.8.1",
+    "babel-core": "^6.3.15",
+    "babel-eslint": "^4.1.6",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "eslint": "^1.9.0",
+    "eslint-config-defaults": "^7.1.1",
+    "flightplan": "^0.6.7",
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0"
+  }
+}
