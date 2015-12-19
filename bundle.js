@@ -21091,9 +21091,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var websocket = exports.websocket = new WebSocket(document.location.hostname === 'localhost' ? 'ws:localhost:3000' : 'ws:188.166.107.162:3000');
+	// External server, Comment this out if you are messing with the server code.
+	var websocket = exports.websocket = new WebSocket('ws:188.166.107.162:3000');
 
-	// 188.166.107.162
+	// Localhost server, uncomment this if you're messing about with the server code.
+	// export const websocket = new WebSocket('ws:localhost:3000');
 
 	exports.default = {
 	    updateData: function updateData() {
@@ -52748,6 +52750,36 @@
 
 	    filterCounts[9] = props.messages ? props.messages.length : null;
 
+	    var filterMenuItems = (0, _lodash.map)(_constants.filters, function (filter, key) {
+	        return props.filter === key ? _react2.default.createElement(
+	            _reactMdl.MenuItem,
+	            { key: key, disabled: true },
+	            filter,
+	            ' (',
+	            filterCounts[_constants.filterIndex[key]],
+	            ')'
+	        ) : filterCounts[_constants.filterIndex[key]] && _react2.default.createElement(
+	            _reactMdl.MenuItem,
+	            { key: key, onClick: props.filterChangeHandler.bind(undefined, key) },
+	            filter,
+	            ' (',
+	            filterCounts[_constants.filterIndex[key]],
+	            ')'
+	        );
+	    });
+	    var orderMenuItems = (0, _lodash.map)(_constants.orders, function (order, key) {
+	        return (0, _lodash.isEqual)(props.order, order) ? _react2.default.createElement(
+	            _reactMdl.MenuItem,
+	            { key: key, disabled: true },
+	            _constants.orderMenuString[key]
+	        ) : _react2.default.createElement(
+	            _reactMdl.MenuItem,
+	            { key: key, onClick: props.orderChangeHandler.bind(undefined, order) },
+	            _constants.orderMenuString[key]
+	        );
+	    });
+	    var currentFilter = _constants.filters[props.filter];
+
 	    return _react2.default.createElement(
 	        'div',
 	        null,
@@ -52755,48 +52787,18 @@
 	            'span',
 	            { id: 'filter-menu' },
 	            _react2.default.createElement(_reactMdl.IconButton, { name: 'more_vert' }),
-	            _constants.filters[props.filter]
+	            currentFilter
 	        ),
 	        _react2.default.createElement(
 	            _reactMdl.Menu,
 	            { ripple: true, target: 'filter-menu' },
-	            (0, _lodash.map)(_constants.filters, function (filter, key) {
-	                return props.filter === key ? _react2.default.createElement(
-	                    _reactMdl.MenuItem,
-	                    { key: key, disabled: true },
-	                    filter,
-	                    ' (',
-	                    filterCounts[_constants.filterIndex[key]],
-	                    ')'
-	                ) : filterCounts[_constants.filterIndex[key]] && _react2.default.createElement(
-	                    _reactMdl.MenuItem,
-	                    { key: key, onClick: props.filterChangeHandler.bind(undefined, key) },
-	                    filter,
-	                    ' (',
-	                    filterCounts[_constants.filterIndex[key]],
-	                    ')'
-	                );
-	            })
+	            filterMenuItems
 	        ),
 	        _react2.default.createElement(_reactMdl.IconButton, { name: 'swap_vert', id: 'order-menu', style: { float: 'right' } }),
 	        _react2.default.createElement(
 	            _reactMdl.Menu,
 	            { ripple: true, target: 'order-menu', align: 'right' },
-	            (0, _lodash.map)(_constants.orders, function (order, key) {
-	                if ((0, _lodash.isEqual)(props.order, order)) {
-	                    return _react2.default.createElement(
-	                        _reactMdl.MenuItem,
-	                        { key: key, disabled: true },
-	                        _constants.orderMenuString[key]
-	                    );
-	                } else {
-	                    return _react2.default.createElement(
-	                        _reactMdl.MenuItem,
-	                        { key: key, onClick: props.orderChangeHandler.bind(undefined, order) },
-	                        _constants.orderMenuString[key]
-	                    );
-	                }
-	            })
+	            orderMenuItems
 	        )
 	    );
 	};
