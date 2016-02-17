@@ -2,7 +2,7 @@ import {C} from './constants';
 import m from 'moment';
 
 // External server, Comment this out if you are messing with the server code.
-export const websocket = new WebSocket('ws:evening-bayou-44601.herokuapp.com:5000');
+export const websocket = new WebSocket('ws:evening-bayou-44601.herokuapp.com');
 
 // Localhost server, uncomment this if you're messing about with the server code.
 // export const websocket = new WebSocket('ws:localhost:3000');
