@@ -3,7 +3,7 @@ const wss = new WebSocketServer({port: 5000});
 const store = require('./src/store');
 const actions = require('./src/actions');
 
-console.log(wss.options["host"]);
+console.log(process.env.port);
 
 store.subscribe(
     () => {
