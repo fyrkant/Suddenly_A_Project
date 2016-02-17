@@ -1,49 +1,7 @@
 import {C} from './constants';
 import initialState from './initialstate';
 
-const data = (currentState, action) => {
-    switch(action.type) {
-    case C.RECEIVING_DATA:
-        return action.data;
-    default: return currentState || initialState.rawMessages;
-    }
-};
-
-const selected = (currentState, action) => {
-    switch(action.type) {
-    case C.RECEIVING_DATA:
-        return action.data;
-    default: return currentState || initialState.rawMessages;
-    }
-};
-
-const ticker = (currentState, action) => {
-    switch(action.type) {
-    case C.RECEIVING_DATA:
-        return action.data;
-    default: return currentState || initialState.rawMessages;
-    }
-};
-
-const filter = (currentState, action) => {
-    switch(action.type) {
-    case C.RECEIVING_DATA:
-        return action.data;
-    default: return currentState || initialState.rawMessages;
-    }
-};
-
-const order = (currentState, action) => {
-    switch(action.type) {
-    case C.RECEIVING_DATA:
-        return action.data;
-    default: return currentState || initialState.rawMessages;
-    }
-};
-
-
-
-export default (currentState, action) => {
+export default (currentState = initialState, action) => {
     const newState = Object.assign({}, currentState);
 
     switch(action.type) {
@@ -76,6 +34,6 @@ export default (currentState, action) => {
     case C.TICK:
         newState.ticker = action.tickerString;
         return newState;
-    default: return currentState || initialState;
+    default: return currentState;
     }
 };
