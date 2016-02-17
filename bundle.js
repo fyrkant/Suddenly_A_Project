@@ -20873,52 +20873,10 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var data = function data(currentState, action) {
-	    switch (action.type) {
-	        case _constants.C.RECEIVING_DATA:
-	            return action.data;
-	        default:
-	            return currentState || _initialstate2.default.rawMessages;
-	    }
-	};
+	exports.default = function () {
+	    var currentState = arguments.length <= 0 || arguments[0] === undefined ? _initialstate2.default : arguments[0];
+	    var action = arguments[1];
 
-	var selected = function selected(currentState, action) {
-	    switch (action.type) {
-	        case _constants.C.RECEIVING_DATA:
-	            return action.data;
-	        default:
-	            return currentState || _initialstate2.default.rawMessages;
-	    }
-	};
-
-	var ticker = function ticker(currentState, action) {
-	    switch (action.type) {
-	        case _constants.C.RECEIVING_DATA:
-	            return action.data;
-	        default:
-	            return currentState || _initialstate2.default.rawMessages;
-	    }
-	};
-
-	var filter = function filter(currentState, action) {
-	    switch (action.type) {
-	        case _constants.C.RECEIVING_DATA:
-	            return action.data;
-	        default:
-	            return currentState || _initialstate2.default.rawMessages;
-	    }
-	};
-
-	var order = function order(currentState, action) {
-	    switch (action.type) {
-	        case _constants.C.RECEIVING_DATA:
-	            return action.data;
-	        default:
-	            return currentState || _initialstate2.default.rawMessages;
-	    }
-	};
-
-	exports.default = function (currentState, action) {
 	    var newState = Object.assign({}, currentState);
 
 	    switch (action.type) {
@@ -20952,7 +20910,7 @@
 	            newState.ticker = action.tickerString;
 	            return newState;
 	        default:
-	            return currentState || _initialstate2.default;
+	            return currentState;
 	    }
 	};
 
@@ -21092,7 +21050,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// External server, Comment this out if you are messing with the server code.
-	var websocket = exports.websocket = new WebSocket('ws:188.166.107.162:3000');
+	var websocket = exports.websocket = new WebSocket('ws:evening-bayou-44601.herokuapp.com');
 
 	// Localhost server, uncomment this if you're messing about with the server code.
 	// export const websocket = new WebSocket('ws:localhost:3000');
