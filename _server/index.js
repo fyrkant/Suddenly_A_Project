@@ -3,6 +3,8 @@ const wss = new WebSocketServer({port: 3000});
 const store = require('./src/store');
 const actions = require('./src/actions');
 
+console.log(wss);
+
 store.subscribe(
     () => {
         if (store.getState()) {
