@@ -4,7 +4,8 @@
   "description": "Assignment 3, 1DV449",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js --ignore /client/* --ignore /cache.json --verbose"
+    "start": "node index.js",
+    "start:dev": "nodemon index.js --ignore /client/* --ignore /cache.json --verbose"
   },
   "author": "mw222rs",
   "license": "ISC",
