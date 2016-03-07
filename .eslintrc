@@ -4,7 +4,7 @@
     "rules": {
         "indent": [
             2,
-            4
+            2
         ],
         "quotes": [
             2,
@@ -24,7 +24,7 @@
         "comma-dangle": 1,
         "space-unary-ops": 1,
         "no-unused-vars": 1,
-        "react/display-name": 
+        "react/display-name":
             [1, { "acceptTranspilerName": true }],
         "react/forbid-prop-types": 1,
         "react/jsx-boolean-value": 1,

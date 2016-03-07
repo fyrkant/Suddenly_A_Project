@@ -14,8 +14,8 @@ render(
 
 
 websocket.onmessage = event => {
-    const action = JSON.parse(event.data);
+  const action = JSON.parse(event.data);
 
-    store.dispatch(action);
-    store.dispatch(actions.timeSinceUpdateTicker());
+  store.dispatch(action);
+  store.dispatch(actions.timeSinceUpdateTicker());
 };

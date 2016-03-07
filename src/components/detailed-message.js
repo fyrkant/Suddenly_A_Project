@@ -5,9 +5,9 @@ import m from 'moment';
 import {priorityColors, priorityString} from '../constants';
 
 export const DetailedMessage = (props) => {
-    const prioStr = priorityString[props.message.priority];
+  const prioStr = priorityString[props.message.priority];
 
-    return (
+  return (
         <Card shadow={0} style={{width: '250px', margin: '0', padding: '0'}} onClick={props.onClick}>
             <CardText>
                 <CardTitle>{props.message.title}</CardTitle>

@@ -4,12 +4,12 @@ import {map, countBy, isEqual} from 'lodash';
 import {filters, filterIndex, orders, orderMenuString} from '../constants';
 
 export let FilterMenu = (props) => {
-    const filterCounts = countBy(props.messages, 'category');
+  const filterCounts = countBy(props.messages, 'category');
 
-    filterCounts[9] = props.messages ? props.messages.length : null;
+  filterCounts[9] = props.messages ? props.messages.length : null;
 
-    const filterMenuItems = map(filters, (filter, key) => {
-        return (props.filter === key ?
+  const filterMenuItems = map(filters, (filter, key) => {
+    return (props.filter === key ?
             <MenuItem key={key} disabled>
                 {filter} ({filterCounts[filterIndex[key]]})
             </MenuItem> : filterCounts[filterIndex[key]] &&
@@ -17,16 +17,16 @@ export let FilterMenu = (props) => {
                 {filter} ({filterCounts[filterIndex[key]]})
             </MenuItem>
         );
-    });
-    const orderMenuItems = map(orders, (order, key) => {
-        return (isEqual(props.order, order) ?
+  });
+  const orderMenuItems = map(orders, (order, key) => {
+    return (isEqual(props.order, order) ?
             <MenuItem key={key} disabled>{orderMenuString[key]}</MenuItem> :
             <MenuItem key={key} onClick={props.orderChangeHandler.bind(this, order)}>{orderMenuString[key]}</MenuItem>
         );
-    });
-    const currentFilter = filters[props.filter];
+  });
+  const currentFilter = filters[props.filter];
 
-    return (
+  return (
         <div>
             <span id="filter-menu">
                 <IconButton name="more_vert" />

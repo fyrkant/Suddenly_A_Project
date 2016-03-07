@@ -4,10 +4,10 @@ import {map} from 'lodash';
 import m from 'moment';
 
 export let MessageList = (props) => {
-    const nodes = map(props.messages || [], (message) => {
-        const baseStyle = {padding: '4px 8px', display: 'block', cursor: 'pointer'};
+  const nodes = map(props.messages || [], (message) => {
+    const baseStyle = {padding: '4px 8px', display: 'block', cursor: 'pointer'};
 
-        return (
+    return (
             <a
                 href="#"
                 key={message.id}
@@ -21,7 +21,7 @@ export let MessageList = (props) => {
                 <p>{message.title}</p>
             </a>
         );
-    });
+  });
 
-    return <Navigation>{nodes || ''}</Navigation>;
+  return <Navigation>{nodes || ''}</Navigation>;
 };

@@ -4,7 +4,9 @@
   "description": "Assignment 3, 1DV449",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --port 8888 --hot --progress --colors -d"
+    "start": "webpack-dev-server --port 8888 --hot --progress --colors -d",
+    "lint": "eslint src/**",
+    "lint:fix": "eslint src/** --fix"
   },
   "author": "mw222rs",
   "license": "ISC",

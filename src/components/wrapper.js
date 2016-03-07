@@ -18,12 +18,12 @@ m.locale('sv');
 
 class Wrapper extends React.Component {
     render() {
-        const filteredAndSorted = _(this.props.allMessages)
+      const filteredAndSorted = _(this.props.allMessages)
             .filter(m => this.props.filter === 'ALL' ? m : m.category === filterIndex[this.props.filter])
             .sortByOrder(this.props.order.key, this.props.order.direction)
             .value();
 
-        return (
+      return (
             <Layout fixedDrawer>
                 <Drawer>
                     <UpdateButton
@@ -56,34 +56,34 @@ class Wrapper extends React.Component {
 }
 
 const mapStateToProps = (appState) => {
-    return {
-        allMessages: appState.data.messages,
-        selected: appState.selected,
-        filter: appState.filter,
-        order: appState.order,
-        focus: appState.focus,
-        ticker: appState.ticker
-    };
+  return {
+    allMessages: appState.data.messages,
+    selected: appState.selected,
+    filter: appState.filter,
+    order: appState.order,
+    focus: appState.focus,
+    ticker: appState.ticker
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        update() {
-            dispatch(actions.updateData());
-        },
-        selectMessage(id) {
-            dispatch(actions.selectMessage(id));
-        },
-        changeFilter(filter) {
-            dispatch(actions.changeFilter(filter));
-        },
-        changeOrder(order) {
-            dispatch(actions.changeOrder(order));
-        },
-        focus(id) {
-            dispatch(actions.focus(id));
-        }
-    };
+  return {
+    update() {
+      dispatch(actions.updateData());
+    },
+    selectMessage(id) {
+      dispatch(actions.selectMessage(id));
+    },
+    changeFilter(filter) {
+      dispatch(actions.changeFilter(filter));
+    },
+    changeOrder(order) {
+      dispatch(actions.changeOrder(order));
+    },
+    focus(id) {
+      dispatch(actions.focus(id));
+    }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wrapper);
