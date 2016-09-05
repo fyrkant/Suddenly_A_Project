@@ -1,31 +1,31 @@
-const WebSocketServer = require('ws').Server;
-const wss = new WebSocketServer({port: process.env.PORT || 5000});
-const store = require('./src/store');
-const actions = require('./src/actions');
+const WebSocketServer = require('ws').Server
+const wss = new WebSocketServer({port: process.env.PORT || 5000})
+const store = require('./src/store')
+const actions = require('./src/actions')
 
 store.subscribe(
-    () => {
-        if (store.getState()) {
-            const action = JSON.stringify(
-                {type: 'RECEIVING_DATA', data: store.getState().data}
-            );
+  () => {
+    if (store.getState()) {
+      const action = JSON.stringify(
+        {type: 'RECEIVING_DATA', data: store.getState().data}
+      )
 
-            wss.broadcast(action);
-        }
+      wss.broadcast(action)
     }
-);
+  }
+)
 
-wss.broadcast = (data) => wss.clients.forEach(client => client.send(data));
+wss.broadcast = (data) => wss.clients.forEach(client => client.send(data))
 
 wss.on('connection', (ws) => {
-    console.log('client connected');
+  console.log('client connected')
 
-    store.dispatch(actions.getData());
+  store.dispatch(actions.getData())
 
-    ws.on('message', (message) => {
-        if (message === 'UPDATE') {
-            console.log('client requests new data');
-            store.dispatch(actions.getNewData());
-        }
-    });
-});
+  ws.on('message', (message) => {
+    if (message === 'UPDATE') {
+      console.log('client requests new data')
+      store.dispatch(actions.getNewData())
+    }
+  })
+})

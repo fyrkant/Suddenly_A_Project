@@ -1,44 +1,44 @@
-import {C} from './constants';
-import m from 'moment';
+import { C } from './constants'
+import m from 'moment'
 
 // External server, Comment this out if you are messing with the server code.
-export const websocket = new WebSocket('ws:evening-bayou-44601.herokuapp.com');
+export const websocket = new window.WebSocket(C.SERVER_URL)
 
 // Localhost server, uncomment this if you're messing about with the server code.
-// export const websocket = new WebSocket('ws:localhost:3000');
+// export const websocket = new WebSocket('ws:localhost:3000')
 
 export default {
-  updateData() {
+  updateData () {
     return () => {
-      websocket.send('UPDATE');
-    };
+      websocket.send('UPDATE')
+    }
   },
-  selectMessage(id) {
+  selectMessage (id) {
     return (dispatch, getState) => {
       if (getState().selected.id === id) {
-        dispatch({type: C.DESELECT_MESSAGE});
+        dispatch({type: C.DESELECT_MESSAGE})
       } else {
-        dispatch({type: C.SELECT_MESSAGE, id: id});
+        dispatch({type: C.SELECT_MESSAGE, id: id})
       }
-    };
+    }
   },
-  changeFilter(filter) {
-    return {type: C.CHANGE_FILTER, filter};
+  changeFilter (filter) {
+    return {type: C.CHANGE_FILTER, filter}
   },
-  changeOrder(order) {
-    return {type: C.CHANGE_ORDER, order: order};
+  changeOrder (order) {
+    return {type: C.CHANGE_ORDER, order: order}
   },
-  timeSinceUpdateTicker() {
+  timeSinceUpdateTicker () {
     return (dispatch, getState) => {
-      dispatch({type: C.TICK, tickerString: 'Uppdaterades ' + m(getState().data.meta.time).fromNow()});
+      dispatch({type: C.TICK, tickerString: 'Uppdaterades ' + m(getState().data.meta.time).fromNow()})
       setInterval(() => {
-        dispatch({type: C.TICK, tickerString: 'Uppdaterades ' + m(getState().data.meta.time).fromNow()});
-      }, 10000);
-    };
+        dispatch({type: C.TICK, tickerString: 'Uppdaterades ' + m(getState().data.meta.time).fromNow()})
+      }, 10000)
+    }
   },
-  focus(id) {
+  focus (id) {
     return (dispatch) => {
-      dispatch({type: C.FOCUS, id: id});
-    };
+      dispatch({type: C.FOCUS, id: id})
+    }
   }
-};
+}
