@@ -12,6 +12,7 @@ export const C = {
 
 // pin color urls used by marker component
 export const pinUrl = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|'
+
 export const priorityColors = {
   1: 'E91E63',
   2: 'FF5722',

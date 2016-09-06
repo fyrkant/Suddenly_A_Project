@@ -18,7 +18,7 @@ export default {
       if (getState().selected.id === id) {
         dispatch({type: C.DESELECT_MESSAGE})
       } else {
-        dispatch({type: C.SELECT_MESSAGE, id: id})
+        dispatch({type: C.SELECT_MESSAGE, id})
       }
     }
   },
@@ -26,7 +26,7 @@ export default {
     return {type: C.CHANGE_FILTER, filter}
   },
   changeOrder (order) {
-    return {type: C.CHANGE_ORDER, order: order}
+    return {type: C.CHANGE_ORDER, order}
   },
   timeSinceUpdateTicker () {
     return (dispatch, getState) => {
@@ -38,7 +38,7 @@ export default {
   },
   focus (id) {
     return (dispatch) => {
-      dispatch({type: C.FOCUS, id: id})
+      dispatch({type: C.FOCUS, id})
     }
   }
 }

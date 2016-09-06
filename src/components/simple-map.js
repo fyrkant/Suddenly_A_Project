@@ -12,7 +12,6 @@ export const SimpleMap = props => {
     <GoogleMapLoader
       containerElement={
         <div className='mdl-layout__content'
-          {...props}
           style={{height: '100%'}} />
         }
       googleMapElement={

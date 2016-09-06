@@ -8,4 +8,4 @@ export default {
     key: 'createddate',
     direction: 'desc'
   }
-};
+}
