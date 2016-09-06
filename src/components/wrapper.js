@@ -20,7 +20,7 @@ class Wrapper extends React.Component {
   render () {
     const filteredAndSorted = _(this.props.allMessages)
       .filter(m => this.props.filter === 'ALL' ? m : m.category === filterIndex[this.props.filter])
-      .sortByOrder(this.props.order.key, this.props.order.direction)
+      .sortBy(this.props.order.key, this.props.order.direction)
       .value()
 
     return (

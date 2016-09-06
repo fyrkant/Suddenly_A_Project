@@ -5,6 +5,9 @@ import store from './store'
 import actions, { websocket } from './actions.js'
 import Wrapper from './components/wrapper'
 
+import 'react-mdl/extra/material.css'
+import 'react-mdl/extra/material.js'
+
 render(
   <Provider store={store}>
     <Wrapper />
